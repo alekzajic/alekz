@@ -118,16 +118,118 @@ footer > a:hover {
   color: #bdc3c7;
 }
 
+/*flasher*/
+div.alexis {
+  margin: auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  height: 80px;
+  -webkit-transition: all 1s ease;
+  transition: all 1s ease;
+  -webkit-transform: translateZ(0);
+          transform: translateZ(0);
+}
+
+div.alexis h1 {
+  text-align: center;
+  font-size: 3em;
+  margin-top: -20px;
+  -webkit-transition: all 1s ease;
+  transition: all 1s ease;
+  color: #ffffff;
+}
+
+div.alexis span {
+  position: relative;
+  display: inline-block;
+  -webkit-animation: fadeInOut 3s ease-in-out infinite;
+          animation: fadeInOut 3s ease-in-out infinite;
+}
+
+@-webkit-keyframes fadeInOut {
+  0% {
+    opacity: 0;
+    top: 20px;
+  }
+  40% {
+    opacity: 1;
+    top: 0px;
+  }
+  70% {
+    opacity: 1;
+    top: 0px;
+  }
+  100% {
+    opacity: 0;
+    top: -20px;
+  }
+}
+
+@keyframes fadeInOut {
+  0% {
+    opacity: 0;
+    top: 20px;
+  }
+  40% {
+    opacity: 1;
+    top: 0px;
+  }
+  70% {
+    opacity: 1;
+    top: 0px;
+  }
+  100% {
+    opacity: 0;
+    top: -20px;
+  }
+}
+
     </style>
   </head>
   <body>
 
     <div class="container">
-      <h1>Coming Soon.</h1>
+
+      <div class="'alexis'">
+        <h1>Jason Fisher is&#8230; <span id="adj" class="animated"></span></h1>
+      </div>
+
+      <h3>Coming Soon.</h3>
     </div>
     <footer>
       <a href="mailto:alisteroz@gmail.com">alisteroz@gmail.com</a> | &copy; 2016 Aleksandar Zajic
     </footer>
+
+    <script>
+      var adjArray = ["sassy", "creative", "funny"];
+
+      var i = 0;
+
+      function chooseWord() {
+
+        if (i >= adjArray.length) {
+          i = 0;
+        }
+
+        var newWord = adjArray[i];
+        i++;
+
+        return newWord;
+      }
+
+      function wordSwap(word) {
+        	$("#adj").text(word);
+      }
+
+      $(function() {
+      	setInterval(function() {
+          $("#adj").text(chooseWord())
+        }, 3000);
+      });
+    </script>
 
   </body>
 </html>
