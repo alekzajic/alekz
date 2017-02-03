@@ -1,2 +1,2 @@
 # alekz
-Personal website in Jekyll
+Personal website (Work in progress)
